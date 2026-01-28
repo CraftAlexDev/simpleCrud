@@ -20,6 +20,11 @@ public class Utente {
 	private Date dataNascita;
 	@Column(length=16,unique=true, nullable=false)
 	private String cf;
+	
+	@OneToOne
+	@JoinColumn(name="id_account", referencedColumnName="id")
+	private Account account;
+	
 	public int getId() {
 		return Id;
 	}
