@@ -8,6 +8,7 @@ public class SimpleCrudApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SimpleCrudApplication.class, args);
+		System.out.println("Versione v1.1");
 		System.out.println("App in ascolto sulla porta 8095");
 	}
 }
