@@ -1,7 +1,7 @@
 package progettiSpring.simpleCrud.model;
 
-
 import java.sql.Date;
+import java.util.List;
 
 import jakarta.persistence.*;
 
@@ -24,6 +24,14 @@ public class Utente {
 	@OneToOne
 	@JoinColumn(name="id_account", referencedColumnName="id")
 	private Account account;
+	
+	@ManyToMany(fetch=FetchType.LAZY)
+	@JoinTable(
+			name="cross_progetti_utenti",
+			joinColumns=@JoinColumn(name="id_utente"), //si riferisce alla classe in cui siamo
+			inverseJoinColumns=@JoinColumn(name="id_progetto") //si riferisce alla classe/tabella da collegare
+			)
+	private List<Progetto> progetti;
 	
 	public int getId() {
 		return Id;
@@ -54,6 +62,18 @@ public class Utente {
 	}
 	public void setCf(String cf) {
 		this.cf = cf;
+	}
+	public Account getAccount() {
+		return account;
+	}
+	public void setAccount(Account account) {
+		this.account = account;
+	}
+	public List<Progetto> getProgetti() {
+		return progetti;
+	}
+	public void setProgetti(List<Progetto> progetti) {
+		this.progetti = progetti;
 	}
 	
 	
