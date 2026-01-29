@@ -5,6 +5,7 @@ import java.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import progettiSpring.simpleCrud.model.Ruolo;
 import progettiSpring.simpleCrud.model.Utente;
 import progettiSpring.simpleCrud.repository.IRepoUtente;
 //@Controller: gestiamo richieste in un'architerrura 3-tiers.(monolite=lavorano tutti e 3 insieme).
@@ -39,5 +40,10 @@ public class Avvio {
 	public String remove(@RequestParam int id) {
 		iru.deleteById(id);
 		return "rimozione avvenuta con successo";
+	}
+	public String test() {
+		Ruolo ruolo = new Ruolo();	
+		ruolo.setNome_ruolo("house");
+		return "";
 	}
 }

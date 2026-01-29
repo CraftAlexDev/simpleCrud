@@ -1,11 +1,16 @@
 package progettiSpring.simpleCrud.model;
 
 import java.sql.Date;
+
 import java.util.List;
 
 import jakarta.persistence.*;
+import lombok.*;
 
 @Entity
+@NoArgsConstructor @AllArgsConstructor
+@Setter @Getter
+@ToString @EqualsAndHashCode
 @Table(name="utenti")
 public class Utente {
 	@Id
@@ -31,50 +36,5 @@ public class Utente {
 			joinColumns=@JoinColumn(name="id_utente"), //si riferisce alla classe in cui siamo
 			inverseJoinColumns=@JoinColumn(name="id_progetto") //si riferisce alla classe/tabella da collegare
 			)
-	private List<Progetto> progetti;
-	
-	public int getId() {
-		return Id;
-	}
-	public void setId(int id) {
-		Id = id;
-	}
-	public String getNome() {
-		return nome;
-	}
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-	public String getCognome() {
-		return cognome;
-	}
-	public void setCognome(String cognome) {
-		this.cognome = cognome;
-	}
-	public Date getDataNascita() {
-		return dataNascita;
-	}
-	public void setDataNascita(Date dataNascita) {
-		this.dataNascita = dataNascita;
-	}
-	public String getCf() {
-		return cf;
-	}
-	public void setCf(String cf) {
-		this.cf = cf;
-	}
-	public Account getAccount() {
-		return account;
-	}
-	public void setAccount(Account account) {
-		this.account = account;
-	}
-	public List<Progetto> getProgetti() {
-		return progetti;
-	}
-	public void setProgetti(List<Progetto> progetti) {
-		this.progetti = progetti;
-	}
-	
-	
+	private List<Progetto> progetti;	
 }
